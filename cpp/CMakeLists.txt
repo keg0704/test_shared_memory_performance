@@ -1,8 +1,6 @@
-# Copyright (c) 2022 Graphcore Ltd. All rights reserved.
-
 cmake_minimum_required(VERSION 3.25)
 
-project(gcinfprocessor LANGUAGES C CXX)
+project(multithreaded_decoding LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 include(ExternalProject)
@@ -42,7 +40,6 @@ set(TURBOJPEG_LIB ${EXTERNAL_INSTALL_LOCATION}/lib/libturbojpeg.so CACHE INTERNA
 
 ### tjbenchmark library
 file(GLOB gip "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc")
-set(GCInferenceProcessorInclude "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "")
 
 add_executable(tjbenchmark ${gip})
 target_link_libraries(tjbenchmark PRIVATE stdc++fs ${OPENCV_CORE_LIB} ${OPENCV_IMGPROC_LIB} ${OPENCV_IMGCODEC_LIB} ${TURBOJPEG_LIB})
