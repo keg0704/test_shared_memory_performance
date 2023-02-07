@@ -45,6 +45,8 @@ void processImg(std::string imgPath) {
   tjDestroy(handle);
 }
 
+void cvDecoder(std::string imgPath) { cv::imread(imgPath); }
+
 int main() {
   std::string imgPath = "/concurrency_benchmarking/1659420200000.jpg";
 
